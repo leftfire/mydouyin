@@ -9,6 +9,11 @@ func Init(port string) error {
 			"message": "pong",
 		})
 	})
+	r.GET("/", func(ctx *gin.Context) {
+		ctx.JSON(200, gin.H{
+			"message": "hello world",
+		})
+	})
 
 	return r.Run(port)
 

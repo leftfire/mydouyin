@@ -1,6 +1,7 @@
 package router
 
 import (
+	"dydy/controller"
 	"io/fs"
 	"net/http"
 
@@ -18,6 +19,7 @@ func Init(port string) error {
 	// 	ctx.Data(200, "text/html", Html)
 	// })
 	v1 := r.Group("v1")
+
 	v1.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "pong",
@@ -28,7 +30,8 @@ func Init(port string) error {
 			"message": "hello world",
 		})
 	})
-
+	user := v1.Group("user")
+	user.POST("/", controller.AddUser)
+	user.GET("/", controller.GetUser)
 	return r.Run(port)
-
 }

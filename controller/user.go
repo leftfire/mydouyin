@@ -28,3 +28,17 @@ func AddUser(c *gin.Context) {
 }
 
 //查询用户
+func GetUser(c *gin.Context) {
+	ulist, err := model.GetUser()
+	if err != nil {
+		c.JSON(400, gin.H{
+			"message": "查询失败",
+		})
+		return
+	}
+	c.JSON(200, gin.H{
+		"message": "查询成功",
+		"data":    ulist,
+	})
+
+}

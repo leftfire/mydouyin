@@ -9,8 +9,8 @@ import (
 //增加用户
 
 func AddUser(c *gin.Context) {
-	var u model.User
-	if err := c.BindJSON(&u); err != nil {
+	var u *model.User
+	if err := c.BindJSON(u); err != nil {
 		c.JSON(400, gin.H{
 			"message": "参数错误",
 		})

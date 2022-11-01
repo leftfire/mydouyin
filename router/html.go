@@ -12,9 +12,6 @@ var Html []byte
 //go:embed html/*.html
 var Static embed.FS
 
-//go:embed html/icons
-var Icons embed.FS
-
 // type Resource struct {
 // 	fs   embed.FS
 // 	path string

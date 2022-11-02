@@ -31,7 +31,7 @@ type Uploader struct {
 
 func (author Author) Authorize() (string, error) {
 	c := req.C()
-	requrl := fmt.Sprintf("%s?client_key=%s&scope=%s&redirect_url=%s&state=%s&response_type=%s", AuthorUrl, author.ClientKey, author.Scope, author.RedirectUrl, author.State, author.ResponseType)
+	requrl := fmt.Sprintf("%s?client_key=%s&scope=%s&redirect_url=%s&state=%s&response_type=%s", AuthorUrl, ClientKey, author.Scope, author.RedirectUrl, author.State, author.ResponseType)
 	resp, err := c.R().Get(requrl)
 	if err != nil {
 		return "", err

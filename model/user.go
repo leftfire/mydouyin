@@ -18,7 +18,7 @@ type User struct {
 }
 
 //添加用户
-func (u *User) AddUser() error {
+func UserAdd(u *User) error {
 	return db.G_db.Create(u).Error
 }
 

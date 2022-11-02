@@ -9,7 +9,6 @@ var Html []byte
 
 //go:embed html/*.js
 //go:embed html/*.css
-//go:embed html/*.html
 var Static embed.FS
 
 // type Resource struct {

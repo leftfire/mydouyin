@@ -43,5 +43,7 @@ func Init(port string) error {
 	user := v1.Group("user")
 	user.POST("/", controller.AddUser)
 	user.GET("/", controller.GetUser)
+	tiktok := v1.Group("tiktok")
+	tiktok.GET("/authorize", controller.Authorize)
 	return r.Run(port)
 }

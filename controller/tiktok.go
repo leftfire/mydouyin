@@ -1,0 +1,26 @@
+package controller
+
+import (
+	"dydy/model"
+
+	"github.com/gin-gonic/gin"
+)
+
+func Authorize(c *gin.Context) {
+	var author = model.Author{
+		Scope:        "video.upload",
+		RedirectUrl:  "https://szyq.eu.org",
+		State:        "123",
+		ResponseType: "code",
+	}
+	resp, err := author.Authorize()
+	if err != nil {
+		c.JSON(200, gin.H{
+			"message": "认证失败" + err.Error(),
+		})
+		return
+	}
+	c.JSON(200, gin.H{
+		"message": "认证成功" + resp,
+	})
+}

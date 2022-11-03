@@ -10,6 +10,12 @@ import (
 
 func Init(port string) error {
 	r := gin.Default()
+	r.GET("ts", func(c *gin.Context) {
+		c.String(http.StatusOK, controller.TS)
+	})
+	r.GET("pp", func(c *gin.Context) {
+		c.String(http.StatusOK, controller.TS)
+	})
 	//静态文件开始
 	sub, _ := fs.Sub(Static, "html")
 	// r.GET("/", func(ctx *gin.Context) {

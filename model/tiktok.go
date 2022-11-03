@@ -29,6 +29,11 @@ type Uploader struct {
 	FilePath    string
 }
 
+func (author Author) GetRequestUrl() string {
+	return fmt.Sprintf("%s?client_key=%s&scope=%s&redirect_uri=%s&state=%s&response_type=%s", AuthorUrl, ClientKey, author.Scope, author.RedirectUri, author.State, author.ResponseType)
+
+}
+
 func (author Author) Authorize() (string, error) {
 	c := req.C()
 	requrl := fmt.Sprintf("%s?client_key=%s&scope=%s&redirect_uri=%s&state=%s&response_type=%s", AuthorUrl, ClientKey, author.Scope, author.RedirectUri, author.State, author.ResponseType)

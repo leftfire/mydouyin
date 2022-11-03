@@ -2,6 +2,7 @@ package controller
 
 import (
 	"dydy/model"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
@@ -31,14 +32,9 @@ func Authorize1(c *gin.Context) {
 		State:        "123",
 		ResponseType: "code",
 	}
-	resp, err := author.Authorize()
-	if err != nil {
-		c.JSON(200, gin.H{
-			"message": "认证失败" + err.Error(),
-		})
-		return
-	}
-	c.Data(200, "text/html", []byte(resp))
+	url := author.GetRequestUrl()
+
+	c.Redirect(http.StatusFound, url)
 }
 
 //callback

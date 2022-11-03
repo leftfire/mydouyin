@@ -10,7 +10,7 @@ import (
 func Authorize(c *gin.Context) {
 	var author = model.Author{
 		Scope:        "video.upload",
-		RedirectUri:  "https://szyq.eu.org/v1/tiktok/callback",
+		RedirectUri:  "https://szyq.eu.org",
 		State:        "123",
 		ResponseType: "code",
 	}
@@ -28,7 +28,7 @@ func Authorize(c *gin.Context) {
 func Authorize1(c *gin.Context) {
 	var author = model.Author{
 		Scope:        "video.upload",
-		RedirectUri:  "https://szyq.eu.org/v1/tiktok/callback",
+		RedirectUri:  "https://szyq.eu.org",
 		State:        "123",
 		ResponseType: "code",
 	}
@@ -40,7 +40,7 @@ func Authorize1(c *gin.Context) {
 func Authorize2(c *gin.Context) {
 	var author = model.Author{
 		Scope:        "video.upload",
-		RedirectUri:  "https://szyq.eu.org/v1/tiktok/callback",
+		RedirectUri:  "https://szyq.eu.org",
 		State:        "123",
 		ResponseType: "code",
 	}

@@ -19,7 +19,7 @@ func Init(port string) error {
 	r.GET("/", func(ctx *gin.Context) {
 		ctx.Data(200, "text/html", Html)
 	})
-	r.GET("/home", func(ctx *gin.Context) {
+	r.GET("/douyin", func(ctx *gin.Context) {
 		ctx.Data(200, "text/html", Html)
 	})
 	r.GET("/table", func(ctx *gin.Context) {

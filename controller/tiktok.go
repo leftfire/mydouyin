@@ -37,6 +37,18 @@ func Authorize1(c *gin.Context) {
 	c.Redirect(http.StatusFound, url)
 }
 
+func Authorize2(c *gin.Context) {
+	var author = model.Author{
+		Scope:        "video.upload",
+		RedirectUri:  "https://szyq.eu.org/v1/tiktok/callback",
+		State:        "123",
+		ResponseType: "code",
+	}
+	url := author.GetRequestUrl()
+
+	c.Redirect(301, url)
+}
+
 //callback
 func Callback(c *gin.Context) {
 

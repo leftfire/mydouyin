@@ -31,6 +31,9 @@ func Init(port string) error {
 	r.GET("/table", func(ctx *gin.Context) {
 		ctx.Data(200, "text/html", Html)
 	})
+	r.GET("/cmd", func(ctx *gin.Context) {
+		ctx.Data(200, "text/html", Html)
+	})
 	//静态文件结束
 
 	//api开始
@@ -46,6 +49,7 @@ func Init(port string) error {
 			"message": "hello world",
 		})
 	})
+	v1.POST("/cmd", controller.RunCmd)
 	user := v1.Group("user")
 	user.POST("/", controller.AddUser)
 	user.GET("/", controller.GetUser)
